@@ -150,6 +150,37 @@ DELETE /api/students/deleteall
 ```
 
 ---
+## 🗑️ Soft Delete Feature
+
+This project supports **Soft Delete**, which marks a student as deleted instead of permanently removing the record from the database.
+
+### How it Works
+
+- A new `deleted` field is added to the `Student` entity.
+- When a student is soft deleted, the `deleted` flag is updated to `true`.
+- Soft-deleted students are automatically excluded from all fetch operations.
+- The data remains stored in the database and can be restored in the future if needed.
+
+### Soft Delete API
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| DELETE | `/api/students/delete-soft/{id}` | Soft delete a student by ID |
+
+### Example Response
+
+```text
+Student soft deleted successfully.
+```
+
+### Database Example
+
+| id | name | deleted |
+|----|------|---------|
+| 1 | Ankit Shukla | false |
+| 2 | Rahul Sharma | true |
+
+> **Note:** Records with `deleted = true` are hidden from the Get Student and Get All Students APIs.
 
 ## 🗄️ Database Schema
 
