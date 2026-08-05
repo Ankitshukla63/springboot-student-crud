@@ -23,6 +23,7 @@ A RESTful CRUD API built using **Spring Boot**, **Spring Data JPA**, and **MySQL
 - ✅ Get All Students
 - ✅ Update Student
 - ✅ Delete Student
+- ✅ Soft Delete Student
 - ✅ MySQL Database Integration
 - ✅ Spring Data JPA
 - ✅ RESTful APIs
