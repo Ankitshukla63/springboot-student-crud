@@ -1,6 +1,7 @@
 <p align="center">
   <img src="assets/springboot_crud.png" alt="Spring Boot Student CRUD API" width="100%">
 </p>
+
 ![Java](https://img.shields.io/badge/Java-21-orange)
 
 ![Spring Boot](https://img.shields.io/badge/Spring_Boot-4.x-brightgreen)
