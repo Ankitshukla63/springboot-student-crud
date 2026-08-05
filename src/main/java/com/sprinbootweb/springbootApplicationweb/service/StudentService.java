@@ -3,6 +3,7 @@ package com.sprinbootweb.springbootApplicationweb.service;
 
 import com.sprinbootweb.springbootApplicationweb.entity.Student;
 import com.sprinbootweb.springbootApplicationweb.repository.StudentRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
@@ -12,17 +13,19 @@ public class StudentService {
     // delegate to student repository through dependency injection
 
     private StudentRepository studentRepository;
+
+    @Autowired
     public StudentService(StudentRepository studentRepository){
         this.studentRepository=studentRepository;
     }
 
+    // bussiness logic
+    // service class tell to repository to store in db--> only for validation or bussiness logic then deligate student repostory
     public Student createStudent(Student studentreq){
-
         Student studentresp=studentRepository.save(studentreq);
         return studentresp;
 
-        // bussiness logic
-        // service class tell to repository to store in db--> only for validation or bussiness logic then deligate student repostory
+
     }
 
     public Student getStudent(Long id){
@@ -56,6 +59,16 @@ public class StudentService {
         studentRepository.deleteById(id);
         return true;
     }
+    public boolean deletedAllStudent() {
+
+        if (studentRepository.findAll().isEmpty()) {
+            return false;
+        }
+        studentRepository.deleteAll();
+        return true;
+    }
+
+
 
 
     // 1. post call and store student information

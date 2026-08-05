@@ -2,6 +2,7 @@ package com.sprinbootweb.springbootApplicationweb.controller;
 
 import com.sprinbootweb.springbootApplicationweb.entity.Student;
 import com.sprinbootweb.springbootApplicationweb.service.StudentService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +15,8 @@ public class StudentController {
     //deletege to student service class for bussiness login through dependency injection
 
     private StudentService studentService;
+
+    @Autowired
     public StudentController(StudentService studentService){
         this.studentService=studentService;
     }
@@ -35,7 +38,8 @@ public class StudentController {
     public ResponseEntity<Student> getStudent(@PathVariable Long id){
         Student studentResp=studentService.getStudent(id);
         if(studentResp==null){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body(null);
         }
         return ResponseEntity
                 .status(HttpStatus.OK)
@@ -47,7 +51,8 @@ public class StudentController {
      public  ResponseEntity<List<Student>> getAllStudent(){
         List<Student> studentsList=studentService.getAllStudent();
         if(studentsList.isEmpty()){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body(null);
         }
         return ResponseEntity
                 .status(HttpStatus.OK)
@@ -60,7 +65,8 @@ public class StudentController {
     public ResponseEntity<Student> updateStudent(@PathVariable Long id, @RequestBody Student studentreq){
         Student studentupdate=studentService.updateStudent(id,studentreq);
         if(studentupdate==null){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body(null);
         }
         return ResponseEntity
                 .status(HttpStatus.OK)
@@ -72,10 +78,24 @@ public class StudentController {
     public ResponseEntity<String> deleteStudent(@PathVariable Long id){
         Boolean isDeleted=studentService.deleteStudent(id);
         if(!isDeleted){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body(null);
         }
         return ResponseEntity
                 .status(HttpStatus.NO_CONTENT)
                 .body("Successfully deleted");
+    }
+    //deleteAll (deleteAll -> /api/students/deleteall
+    @DeleteMapping("/deleteall")
+    public ResponseEntity<String> deleteAllStudent() {
+
+        boolean isAllDeleted = studentService.deletedAllStudent();
+
+        if (!isAllDeleted) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body("No students found");
+        }
+
+        return ResponseEntity.ok("All students deleted successfully");
     }
 }
