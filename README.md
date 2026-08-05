@@ -166,7 +166,7 @@ This project supports **Soft Delete**, which marks a student as deleted instead 
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| DELETE | `/api/students/delete-soft/{id}` | Soft delete a student by ID |
+| PATCH | `/api/students/delete-soft/{id}` | Soft delete a student by ID |
 
 ### Example Response
 
