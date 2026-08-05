@@ -91,7 +91,7 @@ Request Body
 ### Get Student
 
 ```
-GET /api/students/{id}
+GET /api/students/get/{id}
 ```
 
 ---
@@ -99,7 +99,7 @@ GET /api/students/{id}
 ### Get All Students
 
 ```
-GET /api/students
+GET /api/students/getAll
 ```
 
 ---
@@ -107,7 +107,7 @@ GET /api/students
 ### Update Student
 
 ```
-PUT /api/students/{id}
+PUT /api/students/update/{id}
 ```
 
 ---
@@ -115,7 +115,7 @@ PUT /api/students/{id}
 ### Delete Student
 
 ```
-DELETE /api/students/{id}
+DELETE /api/students/deleted/{id}
 ```
 
 ---
