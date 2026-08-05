@@ -33,7 +33,7 @@ public class StudentController {
     }
 
 
-    // read one record of student (Get -> /api/students/{id}
+    // Read one record of student (Get -> /api/students/{id}
     @GetMapping("/get/{id}")
     public ResponseEntity<Student> getStudent(@PathVariable Long id){
         Student studentResp=studentService.getStudent(id);
@@ -97,5 +97,14 @@ public class StudentController {
         }
 
         return ResponseEntity.ok("All students deleted successfully");
+    }
+    //softDelete -> /api/students/delete-soft/{id}
+    @PatchMapping("/delete-soft/{id}")
+    public ResponseEntity<String> deleteStudentSoflty(@PathVariable Long id){
+        Boolean isStudent=studentService.deleteStudentSoftly(id);
+        if(!isStudent){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok("Record deleted");
     }
 }

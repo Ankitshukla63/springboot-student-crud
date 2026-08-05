@@ -22,6 +22,7 @@ public class StudentService {
     // bussiness logic
     // service class tell to repository to store in db--> only for validation or bussiness logic then deligate student repostory
     public Student createStudent(Student studentreq){
+        studentreq.setDeleted(false);
         Student studentresp=studentRepository.save(studentreq);
         return studentresp;
 
@@ -29,18 +30,18 @@ public class StudentService {
     }
 
     public Student getStudent(Long id){
-        Optional<Student> studentresp =studentRepository.findById(id);
+        Optional<Student> studentresp =studentRepository.findByIdAndDeletedFalse(id);
         if(studentresp.isPresent()){
             return  studentresp.get();
         }
         return null;
     }
     public List<Student>  getAllStudent(){
-        List<Student>  studentList=studentRepository.findAll();
+        List<Student>  studentList=studentRepository.findByDeletedIsFalse();
         return studentList;
     }
     public Student updateStudent(Long id,Student studentreq){
-        Optional<Student> studentExisting =studentRepository.findById(id);
+        Optional<Student> studentExisting =studentRepository.findByIdAndDeletedFalse(id);
         if(studentExisting.isEmpty()){
             return null;
         }
@@ -50,6 +51,7 @@ public class StudentService {
         studentToSave.setEmail(studentreq.getEmail());
         studentToSave.setSubject(studentreq.getSubject());
         studentToSave.setRollNo(studentreq.getRollNo());
+        studentToSave.setDeleted(false);
         return studentRepository.save(studentToSave);
 
     }
@@ -59,13 +61,25 @@ public class StudentService {
         studentRepository.deleteById(id);
         return true;
     }
-    public boolean deletedAllStudent() {
+    public Boolean deletedAllStudent() {
 
         if (studentRepository.findAll().isEmpty()) {
             return false;
         }
         studentRepository.deleteAll();
         return true;
+    }
+    public  Boolean deleteStudentSoftly(Long id){
+        //get and update set 1
+        Optional<Student> existingStudent=studentRepository.findByIdAndDeletedFalse(id);
+        if(existingStudent.isEmpty()){
+            return false;
+        }
+        Student studentTOSave=existingStudent.get();
+        studentTOSave.setDeleted(true);
+        studentRepository.save(studentTOSave);
+        return true;
+
     }
 
 
