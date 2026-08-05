@@ -1,4 +1,15 @@
-# 🎓 # Spring Boot Student CRUD REST API | Java + Spring Data JPA + MySQL || Spring Boot Student CRUD REST API using Java, Spring Data JPA, Hibernate, MySQL, Maven and Postman with layered architecture.
+<p align="center">
+  <img src="assets/springboot_crud.png" alt="Spring Boot Student CRUD API" width="100%">
+</p>
+![Java](https://img.shields.io/badge/Java-21-orange)
+
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-4.x-brightgreen)
+
+![MySQL](https://img.shields.io/badge/MySQL-Database-blue)
+
+![License](https://img.shields.io/badge/License-MIT-green)
+
+# 🎓  Spring Boot Student CRUD REST API | Java + Spring Data JPA + MySQL || Spring Boot Student CRUD REST API using Java, Spring Data JPA, Hibernate, MySQL, Maven and Postman with layered architecture.
 
 A RESTful CRUD API built using **Spring Boot**, **Spring Data JPA**, and **MySQL**. This project demonstrates a layered architecture (Controller → Service → Repository) and performs complete CRUD operations on student records.
 
@@ -196,13 +207,6 @@ The APIs can be tested using:
 - Spring Security with JWT
 
 ---
-![Java](https://img.shields.io/badge/Java-21-orange)
-
-![Spring Boot](https://img.shields.io/badge/Spring_Boot-4.x-brightgreen)
-
-![MySQL](https://img.shields.io/badge/MySQL-Database-blue)
-
-![License](https://img.shields.io/badge/License-MIT-green)
 
 ## 👨‍💻 Author
 
