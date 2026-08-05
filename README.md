@@ -143,6 +143,13 @@ DELETE /api/students/deleted/{id}
 ```
 
 ---
+### DeleteAll Student
+
+```
+DELETE /api/students/deleteall/{id}
+```
+
+---
 
 ## 🗄️ Database Schema
 
