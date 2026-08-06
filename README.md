@@ -116,7 +116,7 @@ Request Body
 ### Get Student
 
 ```
-GET /api/students/get/{id}
+GET /api/students/get?id=
 ```
 
 ---
@@ -132,7 +132,7 @@ GET /api/students/getAll
 ### Update Student
 
 ```
-PUT /api/students/update/{id}
+PUT /api/students/update?id=
 ```
 
 ---
@@ -140,7 +140,7 @@ PUT /api/students/update/{id}
 ### Delete Student
 
 ```
-DELETE /api/students/deleted/{id}
+DELETE /api/students/deleted?id=
 ```
 
 ---
@@ -166,7 +166,7 @@ This project supports **Soft Delete**, which marks a student as deleted instead 
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| PATCH | `/api/students/delete-soft/{id}` | Soft delete a student by ID |
+| PATCH | `/api/students/delete-soft?id=` | Soft delete a student by ID |
 
 ### Example Response
 
