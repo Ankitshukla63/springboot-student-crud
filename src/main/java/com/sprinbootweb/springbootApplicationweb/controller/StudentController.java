@@ -34,8 +34,8 @@ public class StudentController {
 
 
     // Read one record of student (Get -> /api/students/{id}
-    @GetMapping("/get/{id}")
-    public ResponseEntity<Student> getStudent(@PathVariable Long id){
+    @GetMapping("/get")
+    public ResponseEntity<Student> getStudent(@RequestParam Long id){
         Student studentResp=studentService.getStudent(id);
         if(studentResp==null){
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
@@ -61,8 +61,8 @@ public class StudentController {
 
 
     // update student (put -> /api/students/{id} with body puri body
-    @PutMapping("/update/{id}")
-    public ResponseEntity<Student> updateStudent(@PathVariable Long id, @RequestBody Student studentreq){
+    @PutMapping("/update")
+    public ResponseEntity<Student> updateStudent(@RequestParam Long id, @RequestBody Student studentreq){
         Student studentupdate=studentService.updateStudent(id,studentreq);
         if(studentupdate==null){
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
@@ -74,8 +74,8 @@ public class StudentController {
     }
 
     // delete student  ( delete -> /api/students/{id}
-    @DeleteMapping("/deleted/{id}")
-    public ResponseEntity<String> deleteStudent(@PathVariable Long id){
+    @DeleteMapping("/deleted")
+    public ResponseEntity<String> deleteStudent(@RequestParam Long id){
         Boolean isDeleted=studentService.deleteStudent(id);
         if(!isDeleted){
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
@@ -99,8 +99,8 @@ public class StudentController {
         return ResponseEntity.ok("All students deleted successfully");
     }
     //softDelete -> /api/students/delete-soft/{id}
-    @PatchMapping("/delete-soft/{id}")
-    public ResponseEntity<String> deleteStudentSoflty(@PathVariable Long id){
+    @PatchMapping("/delete-soft")
+    public ResponseEntity<String> deleteStudentSoflty(@RequestParam Long id){
         Boolean isStudent=studentService.deleteStudentSoftly(id);
         if(!isStudent){
             return ResponseEntity.notFound().build();

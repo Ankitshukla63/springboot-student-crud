@@ -9,6 +9,7 @@ public class SpringbootApplicationwebApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SpringbootApplicationwebApplication.class, args);
 
+
 	}
 
 }
