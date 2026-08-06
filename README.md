@@ -6,12 +6,7 @@
 ![Spring Boot](https://img.shields.io/badge/Spring_Boot-4.x-brightgreen)
 ![MySQL](https://img.shields.io/badge/MySQL-Database-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
-<p align="center">
-  <img src="https://img.shields.io/badge/Java-21-orange" />
-  <img src="https://img.shields.io/badge/Spring_Boot-4.x-brightgreen" />
-  <img src="https://img.shields.io/badge/MySQL-Database-blue" />
-  <img src="https://img.shields.io/badge/License-MIT-green" />
-</p>
+
 
 # 🎓  Spring Boot Student CRUD REST API | Java + Spring Data JPA + MySQL || Spring Boot Student CRUD REST API using Java, Spring Data JPA, Hibernate, MySQL, Maven and Postman with layered architecture.
 
