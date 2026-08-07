@@ -107,4 +107,16 @@ public class StudentController {
         }
         return ResponseEntity.ok("Record deleted");
     }
+    //get all soflty deleted
+    @GetMapping("sofltly-deleted")
+    public ResponseEntity<List<Student>> findByDeletedTrue(){
+        List<Student> getsoftlyDeleted=studentService.getAllDeletedSoftly();
+        if(getsoftlyDeleted.isEmpty()){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(getsoftlyDeleted);
+
+    }
 }

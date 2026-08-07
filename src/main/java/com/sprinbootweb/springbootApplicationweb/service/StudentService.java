@@ -82,6 +82,10 @@ public class StudentService {
 
     }
 
+    public List<Student> getAllDeletedSoftly(){
+        List<Student> deletedsoftlyRes=studentRepository.findByDeletedTrue();
+        return deletedsoftlyRes;
+    }
 
 
 
