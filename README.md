@@ -171,6 +171,59 @@ This project supports **Soft Delete**, which marks a student as deleted instead 
 ```text
 Student soft deleted successfully.
 ```
+## 📌 Get All Soft Deleted Students
+
+Retrieves all student records that have been soft deleted (`deleted = true`). Unlike active student APIs, this endpoint returns only those records that were marked as deleted instead of being permanently removed from the database.
+
+### Endpoint
+
+```http
+GET /students/softly-deleted
+```
+
+### Description
+
+- Returns all soft deleted student records.
+- Uses Spring Data JPA derived query methods.
+- Records are filtered using the `deleted` flag.
+
+### Response
+
+**Status:** `200 OK`
+
+```json
+[
+  {
+    "id": 1,
+    "name": "Ankit",
+    "email": "ankit@example.com",
+    "age": 22,
+    "rollNo": 101,
+    "subject": "Computer Science",
+    "deleted": true
+  },
+  {
+    "id": 2,
+    "name": "Rahul",
+    "email": "rahul@example.com",
+    "age": 21,
+    "rollNo": 102,
+    "subject": "Mathematics",
+    "deleted": true
+  }
+]
+```
+
+### If No Soft Deleted Records Exist
+
+**Status:** `204 No Content`
+
+
+
+
+
+
+
 
 ### Database Example
 
